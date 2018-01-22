@@ -5,12 +5,25 @@ import Admin from './Admin';
 import Card from './Card';
 //Charger les recettes
 import recettes from '../recettes';
+//FireBase
+import base from '../base';
 
 class App extends React.Component {
 
 	state = {
 		recettes: {}
 	};
+
+	componentWillMount() {
+		this.ref = base.syncState(`${this.props.params.pseudo}/recettes`, {
+			context: this,
+			state: 'recettes'
+		})
+	}
+
+	componentWillUnount() {
+		base.removeBinding(this.ref);
+	}
 
 	chargerExemple = () => {
 		this.setState({ recettes });
