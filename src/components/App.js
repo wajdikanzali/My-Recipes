@@ -1,6 +1,7 @@
 // React
 import React from 'react';
 import Header from './Header';
+import Admin from './Admin';
 //Charger les recettes
 import recettes from '../recettes';
 
@@ -21,6 +22,7 @@ class App extends React.Component {
 				<div className="cards">
 					<div className="card"></div>
 				</div>
+				<Admin chargerExemple={this.chargerExemple} />
 			</div>
 		)
 	}
