@@ -27,8 +27,8 @@ class Admin extends React.Component {
 					<textarea value={recette.ingredients} name="ingredients" onChange={e => this.traiterChangement(e, key)} rows="3" placeholder="Liste des ingrédients séparés par une virgule" ></textarea>
 
 					<textarea value={recette.instructions} name="instructions" onChange={e => this.traiterChangement(e, key)} rows="15" placeholder="Liste des instructions (une par ligne)" ></textarea>
-
 				</form>
+				<button onClick={() => this.props.supprimerRecette(key)}>Supprimer</button>
 			</div>
 		)
 	}
@@ -54,7 +54,8 @@ class Admin extends React.Component {
 		recette: React.PropTypes.object.isRequired,
 		chargerExemple: React.PropTypes.func.isRequired,
 		ajouterRecette: React.PropTypes.func.isRequired,
-		majRecette: React.PropTypes.func.isRequired
+		majRecette: React.PropTypes.func.isRequired,
+		supprimerRecette: React.PropTypes.func.isRequired
 	}
 }
 
